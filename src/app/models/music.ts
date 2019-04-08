@@ -1,7 +1,8 @@
 export class Music {
 
-    _id: string;;
+    id: string;;
     title: string;
     duraction: string;
+    track: string;
 
 }

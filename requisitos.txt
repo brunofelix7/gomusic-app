@@ -1,4 +1,4 @@
-MÚSICAS E ARTISTAS FAVORITOS
+MUSICAS E ARTISTAS FAVORITOS
 
 TECNOLOGIAS
 ----------------------------
@@ -21,7 +21,7 @@ TELAS
 - Tela de Login
 - Tela principal com Cards
 - Telas de Listagem
-- Telas de Formulário (Form e Edit)
+- Telas de Formulï¿½rio (Form e Edit)
 
 
 LINKS

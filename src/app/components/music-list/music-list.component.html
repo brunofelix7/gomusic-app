@@ -1,3 +1,57 @@
-<p>
-  music-list works!
-</p>
+<app-navbar>
+  <div class="page-header">
+    <div class="container-fluid">
+      <h2 class="h5 no-margin-bottom">Minhas músicas</h2>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div>
+      <ul class="breadcrumb" style="padding-top:0;">
+        <li class="breadcrumb-item"><a [routerLink]="[ '/dashboard' ]">Home</a></li>
+        <li class="breadcrumb-item active">Músicas </li>
+      </ul>
+    </div>
+  </div>
+  <section class="no-padding-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="block margin-bottom-sm">
+              <div class="title text-left">
+                <a [routerLink]="[ '/musicas/nova' ]" class="btn btn-primary btn-sm" style="text-align: right;"><i class="fa fa-plus"></i> Nova</a>
+              </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Título</th>
+                    <th>Duração</th>
+                    <th>Faixas</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of musics">
+                    <td>{{item.title}}</td>
+                    <td>{{item.duraction}}</td>
+                    <td>{{item.track}}</td>
+                    <td>
+                      <a [routerLink]="[ '/musicas/editar/', item.id ]" type="submit" class="btn btn-secondary btn-sm"
+                        style="background: none; border: none;">
+                        <i class="fa fa-pencil-alt"></i>
+                      </a>
+                      <a [routerLink]="[ '/musicas/deletar/', item.id ]" type="submit" class="btn btn-secondary btn-sm"
+                        style="background: none; border: none;">
+                        <i class="fa fa-trash-alt" style="color: #ff3f3f;"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</app-navbar>

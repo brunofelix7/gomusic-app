@@ -7,7 +7,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
 import { CountdownModule } from 'ngx-countdown';
 
+/** FIREBASE */
+import { environment } from '../environments/environment.prod';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 /** ROUTING */
+import { AppRouting } from './app.routing';
 
 /**GUARDS */
 
@@ -62,6 +71,12 @@ import { HeaderComponent } from './components/header/header.component';
 		FormsModule,
 		HttpClientModule,
 		CountdownModule,
+		AppRouting,
+		AngularFireModule.initializeApp(environment.firebase),
+		AngularFireDatabaseModule,
+		AngularFirestoreModule,
+		AngularFireStorageModule,
+		AngularFireAuthModule,
 		NgxLoadingModule.forRoot({})
 	],
 	providers: [

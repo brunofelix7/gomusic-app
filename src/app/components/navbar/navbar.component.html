@@ -1,3 +1,21 @@
-<p>
-  navbar works!
-</p>
+<div class="d-flex align-items-stretch">
+  <nav id="sidebar">
+    <div class="sidebar-header d-flex align-items-center">
+      <div class="avatar"><img src="/assets/img/avatar-12.jpg" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="title">
+        <h1 class="h5">Bruno Felix</h1>
+        <p>Fullstack Developer</p>
+      </div>
+    </div>
+    <ul class="list-unstyled">
+      <li class="active"><a [routerLink]="[ '/dashboard' ]"> <i class="fa fa-home"></i>Início </a></li>
+      <li><a [routerLink]="[ '/artistas' ]"> <i class="fa fa-user-friends"></i>Artistas </a></li>
+      <li><a [routerLink]="[ '/musicas' ]"> <i class="fa fa-music"></i>Músicas </a></li>
+      <li><a [routerLink]="[ '/albums' ]"> <i class="fa fa-compact-disc"></i>Albuns </a></li>
+      <li><a [routerLink]="[ '/login/?logout=true']" (click)="authService.logout()"> <i class="fa fa-sign-out-alt" style="color:#ff3f3f;"></i><span style="color:#ff3f3f;">Logout</span></a></li>
+    </ul>
+  </nav>
+  <div class="page-content">
+    <ng-content></ng-content>
+  </div>
+</div>
