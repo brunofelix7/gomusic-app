@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Music } from './../models/music';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Music } from './../models/music';
 
 @Injectable({
 	providedIn: 'root'
@@ -16,12 +16,13 @@ export class MusicService {
 	}
 
 	update(music: Music) {
+		let id = music.id;
 		delete music.id;
-		this.firestore.doc('musics/' + music.id).update(music);
+		return this.firestore.doc('musics/' + id).update(music);
 	}
 
 	delete(id: string) {
-		this.firestore.doc('musics/' + id).delete();
+		return this.firestore.doc('musics/' + id).delete();
 	}
 
 	findById(id: string) {
@@ -29,7 +30,7 @@ export class MusicService {
 	}
 
 	list() {
-		return this.firestore.collection('musics').snapshotChanges();
+		return this.firestore.collection('musics', ref => ref.orderBy('title')).snapshotChanges();
 	}
 
 }

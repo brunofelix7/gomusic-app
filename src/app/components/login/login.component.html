@@ -17,17 +17,17 @@
         <div class="col-lg-6">
           <div class="form d-flex align-items-center">
             <div class="content">
-              <form method="get" class="form-validate mb-4">
+              <form (ngSubmit)="login()" class="form-validate mb-4">
                 <div class="form-group">
-                  <input type="text" [(ngModel)]="user.email" id="email" name="email" required data-msg="Please enter your username" class="input-material">
+                  <input type="text" class="input-material" [(ngModel)]="user.email" id="email" name="email" required data-msg="Por favor, preencha seu email">
                   <label for="login-username" class="label-material">Email</label>
                 </div>
                 <div class="form-group">
-                  <input type="password" [(ngModel)]="user.password" id="password" name="password" required data-msg="Please enter your password" class="input-material">
+                  <input type="password" class="input-material" [(ngModel)]="user.password" id="password" name="password" required data-msg="Por favor, preencha sua senha">
                   <label for="password" class="label-material">Senha</label>
                 </div>
-                <div style="color:red;">{{ message }}</div>
-                <button type="button" (click)="login()" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <div style="color:#dc3545; font-size: 12px; margin-top: 8px;">{{ message }}</div>
               </form>
               <br><small>Ainda não possui uma conta? </small><a [routerLink]="['/register']" class="signup">SignUp</a>
             </div>

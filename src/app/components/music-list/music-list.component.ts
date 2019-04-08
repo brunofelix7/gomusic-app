@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Music } from './../../models/music';
 import { MusicService } from './../../services/music.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-music-list',
@@ -9,22 +10,50 @@ import { MusicService } from './../../services/music.service';
 })
 export class MusicListComponent implements OnInit {
 
+	id: string;
+	loading: boolean;
 	music: Music;
 	musics: Music[];
 
-	constructor(private service: MusicService) {
-
+	constructor(private service: MusicService, private router: Router, private ativatedRoute: ActivatedRoute) {
+		this.loading = false;
+		this.id = this.ativatedRoute.snapshot.params['id'];
 	}
 
 	ngOnInit() {
-		this.service.list().subscribe(data => {
-			this.musics = data.map(e => {
-				return {
-					id: e.payload.doc.id,
-					...e.payload.doc.data()
-				} as Music;
-			})
-		});
+		this.loading = true;
+		if (this.id != null) {
+			this.delete();
+			return;
+		}
+		this.service.list().subscribe(
+			data => {
+				this.loading = false;
+				this.musics = data.map(e => {
+					this.loading = false;
+					return {
+						id: e.payload.doc.id,
+						...e.payload.doc.data()
+					} as Music;
+				})
+			}, 
+			error => {
+				this.loading = false;
+			});
+	}
+
+	delete() {
+		this.loading = true;
+		this.service.delete(this.id).then(
+			response => {
+				this.loading = false;
+				this.router.navigate(['/musicas']);
+			},
+			error => {
+				this.loading = false;
+				console.log(error);
+			}
+		);
 	}
 
 }

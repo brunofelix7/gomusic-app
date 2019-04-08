@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
 import { CountdownModule } from 'ngx-countdown';
 
@@ -19,6 +19,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppRouting } from './app.routing';
 
 /**GUARDS */
+import { AuthGuard } from './guards/auth.guard';
 
 /**SERVICES */
 import { AuthService } from './services/auth.service';
@@ -83,7 +84,8 @@ import { HeaderComponent } from './components/header/header.component';
 		AuthService,
 		ArtistService,
 		AlbumService,
-		MusicService
+		MusicService,
+		AuthGuard
 	],
 	bootstrap: [AppComponent]
 })

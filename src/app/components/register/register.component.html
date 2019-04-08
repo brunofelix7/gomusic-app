@@ -17,23 +17,22 @@
         <div class="col-lg-6">
           <div class="form d-flex align-items-center">
             <div class="content">
-              <form method="get" class="form-validate mb-4">
+              <form (ngSubmit)="signup()" class="form-validate mb-4">
                 <div class="form-group">
-                  <input id="login-username" type="text" name="loginUsername" required
-                    data-msg="Please enter your username" class="input-material">
+                  <input class="input-material" type="text" required data-msg="Por favor, preencha seu nome">
                   <label for="login-username" class="label-material">Nome</label>
                 </div>
                 <div class="form-group">
-                  <input id="login-username" type="text" name="loginUsername" required
-                    data-msg="Please enter your username" class="input-material">
+                  <input class="input-material" type="text" [(ngModel)]="user.email" id="email" name="email" required
+                    data-msg="Por favor, preencha seu email">
                   <label for="login-username" class="label-material">Email</label>
                 </div>
                 <div class="form-group">
-                  <input id="login-password" type="password" name="loginPassword" required
-                    data-msg="Please enter your password" class="input-material">
+                  <input class="input-material" type="password" [(ngModel)]="user.password" id="password"
+                    name="password" required data-msg="Por favor, preencha sua senha">
                   <label for="login-password" class="label-material">Senha</label>
                 </div>
-                <button type="submit" class="btn btn-primary" style="margin-right:8px;">Cadastrar</button>
+                <button type="submit" class="btn btn-primary" style="margin-right: 6px;">Cadastrar</button>
                 <a [routerLink]="['/login']" class="btn btn-secondary">Voltar</a>
               </form>
             </div>

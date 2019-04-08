@@ -24,9 +24,14 @@ export class LoginComponent implements OnInit {
 	}
 
 	login() {
-		if(!this.authService.login(this.user)){
+		this.message = '';
+		this.authService.login(this.user)
+		.then(response => {
+			this.router.navigate(['/dashboard']);
+		}).catch(error => {
 			this.message = 'Email ou Senha inválidos';
-		}
+			console.log('Something went wrong:', error.message);
+		});
 	}
 
 }

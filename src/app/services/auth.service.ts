@@ -10,39 +10,25 @@ import { Auth } from '../models/auth';
 export class AuthService {
 
 	user: User;
-	isLogged: boolean;
 
 	constructor(private myAuth: AngularFireAuth, private router: Router) {
-		this.isLogged = false;
 		this.myAuth.authState.subscribe(user => {
 			if (user) {
 				this.user = user;
 				localStorage.setItem('user-firebase', JSON.stringify(this.user));
 			} else {
 				localStorage.setItem('user-firebase', null);
+				this.router.navigate(['/login']);
 			}
 		})
 	}
 
 	login(user: Auth) {
-		this.myAuth.auth.signInWithEmailAndPassword(user.email, user.password)
-			.then(response => {
-				this.isLogged = true;
-				this.router.navigate(['/dashboard']);
-			}).catch(error => {
-				this.isLogged = false;
-				console.log('Something went wrong:', error.message);
-			});
-		return this.isLogged;
+		return this.myAuth.auth.signInWithEmailAndPassword(user.email, user.password);
 	}
 
-	register(user: Auth) {
-		this.myAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
-			.then(response => {
-				console.log('Success!', response);
-			}).catch(error => {
-				console.log('Something went wrong:', error.message);
-			});
+	signup(user: Auth) {
+		return this.myAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
 	}
 
 	logout() {

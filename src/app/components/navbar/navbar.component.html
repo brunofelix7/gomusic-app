@@ -8,10 +8,10 @@
       </div>
     </div>
     <ul class="list-unstyled">
-      <li class="active"><a [routerLink]="[ '/dashboard' ]"> <i class="fa fa-home"></i>Início </a></li>
-      <li><a [routerLink]="[ '/artistas' ]"> <i class="fa fa-user-friends"></i>Artistas </a></li>
-      <li><a [routerLink]="[ '/musicas' ]"> <i class="fa fa-music"></i>Músicas </a></li>
-      <li><a [routerLink]="[ '/albums' ]"> <i class="fa fa-compact-disc"></i>Albuns </a></li>
+      <li routerLinkActive="active"><a [routerLink]="[ '/dashboard' ]"> <i class="fa fa-home"></i>Início </a></li>
+      <li routerLinkActive="active"><a [routerLink]="[ '/artistas' ]"> <i class="fa fa-user-friends"></i>Artistas </a></li>
+      <li routerLinkActive="active"><a [routerLink]="[ '/musicas' ]"> <i class="fa fa-music"></i>Músicas </a></li>
+      <li routerLinkActive="active"><a [routerLink]="[ '/albums' ]"> <i class="fa fa-compact-disc"></i>Albuns </a></li>
       <li><a [routerLink]="[ '/login/?logout=true']" (click)="authService.logout()"> <i class="fa fa-sign-out-alt" style="color:#ff3f3f;"></i><span style="color:#ff3f3f;">Logout</span></a></li>
     </ul>
   </nav>
