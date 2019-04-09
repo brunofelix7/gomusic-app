@@ -1,3 +1,5 @@
+import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
+import { ArtistFormComponent } from './components/artist-form/artist-form.component';
 import { NgModule } from '@angular/core';
 import { MusicDetailsComponent } from './components/music-details/music-details.component';
 import { MusicFormComponent } from './components/music-form/music-form.component';
@@ -21,6 +23,10 @@ const routes: Routes = [
     { path: 'musicas/deletar/:id', component: MusicListComponent, canActivate: [ AuthGuard ] },
     { path: 'musicas/detalhes/:id', component: MusicDetailsComponent, canActivate: [ AuthGuard ] },
     { path: 'artistas', component: ArtistListComponent, canActivate: [ AuthGuard ] },
+    { path: 'artistas/novo', component: ArtistFormComponent, canActivate: [ AuthGuard ] },
+    { path: 'artistas/editar/:id', component: ArtistFormComponent, canActivate: [ AuthGuard ] },
+    { path: 'artistas/deletar/:id', component: ArtistListComponent, canActivate: [ AuthGuard ] },
+    { path: 'artistas/detalhes/:id', component: ArtistDetailsComponent, canActivate: [ AuthGuard ] },
     { path: 'albuns', component: AlbumListComponent, canActivate: [ AuthGuard ] }
 ];
 @NgModule({
