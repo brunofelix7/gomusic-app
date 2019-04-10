@@ -6,8 +6,8 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 })
 export class StorageService {
 
-    selectedFile: FileList;
     file: File;
+    selectedFile: FileList;
     uploadTask: AngularFireUploadTask;
     downloadPath: string;
 

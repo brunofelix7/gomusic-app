@@ -1,0 +1,61 @@
+<app-navbar>
+    <!-- NGX Loading -->
+    <ng-template #customLoadingTemplate></ng-template>
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
+    </ngx-loading>
+    <div class="page-header">
+        <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Meus albuns</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div>
+            <ul class="breadcrumb" style="padding-top:0;">
+                <li class="breadcrumb-item"><a [routerLink]="[ '/dashboard' ]">Home</a></li>
+                <li class="breadcrumb-item active">Albuns</li>
+            </ul>
+        </div>
+    </div>
+    <section class="no-padding-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="block margin-bottom-sm">
+                        <div class="title text-right">
+                            <a [routerLink]="[ '/albuns/novo' ]" class="btn btn-primary btn-sm">
+                                <i class="fa fa-plus-circle"></i> Novo
+                            </a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th class="text-center">Ano</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of albums">
+                                        <td>{{item.title}}</td>
+                                        <td class="text-center">{{item.year}}</td>
+                                        <td class="text-right">
+                                            <a [routerLink]="[ '/albuns/editar/', item.id ]"
+                                                class="btn btn-primary btn-sm btn-icon">
+                                                <i class="fa fa-pencil-alt"></i>
+                                            </a>
+                                            <a [routerLink]="[ '/albuns/deletar/', item.id ]"
+                                                class="btn btn-primary btn-sm btn-icon">
+                                                <i class="fa fa-trash-alt dashtext-3"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</app-navbar>

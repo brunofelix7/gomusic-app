@@ -7,8 +7,13 @@
     <section class="no-padding-top no-padding-bottom">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="statistic-block block">
+                <div class="col-md-3 col-sm-6" style="padding:0; margin: 16px;">
+                    <!-- NGX Loading -->
+                    <ng-template #customLoadingTemplate></ng-template>
+                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"
+                        [template]="customLoadingTemplate">
+                    </ngx-loading>
+                    <div class="statistic-block" style="margin-bottom: 0;">
                         <div class="progress-details d-flex align-items-end justify-content-between">
                             <div class="title">
                                 <div class="icon" style="margin-bottom:8px;">
@@ -24,8 +29,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="statistic-block block">
+                <div class="col-md-3 col-sm-6" style="padding:0; margin: 16px;">
+                    <!-- NGX Loading -->
+                    <ng-template #customLoadingTemplate></ng-template>
+                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"
+                        [template]="customLoadingTemplate">
+                    </ngx-loading>
+                    <div class="statistic-block" style="margin-bottom: 0;">
                         <div class="progress-details d-flex align-items-end justify-content-between">
                             <div class="title">
                                 <div class="icon" style="margin-bottom:8px;">
@@ -41,8 +51,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="statistic-block block">
+                <div class="col-md-3 col-sm-6" style="padding:0; margin: 16px;">
+                    <!-- NGX Loading -->
+                    <ng-template #customLoadingTemplate></ng-template>
+                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"
+                        [template]="customLoadingTemplate">
+                    </ngx-loading>
+                    <div class="statistic-block" style="margin-bottom: 0;">
                         <div class="progress-details d-flex align-items-end justify-content-between">
                             <div class="title">
                                 <div class="icon" style="margin-bottom:8px;">
