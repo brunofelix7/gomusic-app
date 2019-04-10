@@ -1,3 +1,44 @@
-<p>
-  artist-details works!
-</p>
+<app-navbar>
+  <div class="page-header">
+    <div class="container-fluid">
+      <h2 class="h5 no-margin-bottom">Banda: {{ artist.name }}</h2>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div>
+      <ul class="breadcrumb" style="padding-top:0;">
+        <li class="breadcrumb-item"><a [routerLink]="[ '/dashboard' ]">Home</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="[ '/artistas' ]">Artistas</a></li>
+        <li class="breadcrumb-item active">Banda</li>
+      </ul>
+    </div>
+  </div>
+  <section class="no-padding-bottom">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="user-block block text-center">
+            <div class="avatar"><img src="/assets/img/bg.jpg" alt="..." class="img-fluid">
+            </div><a href="#" class="user-title">
+              <h3 class="h5">{{ artist.name }}</h3><span>{{ artist.genre }}</span>
+            </a>
+            <div class="contributions">País de origem<br/>{{ artist.country }}</div>
+            <div class="details d-flex">
+              <div class="item">
+                  <a [routerLink]="[ '/artistas/editar/', id ]" class="btn btn-primary btn-sm btn-icon">
+                    <i class="fa fa-pencil-alt"></i><span> Editar</span>
+                  </a>
+              </div>
+              <div class="item"></div>
+              <div class="item">
+                  <a [routerLink]="[ '/artistas/deletar/', id ]" class="btn btn-primary btn-sm btn-icon">
+                    <i class="fa fa-trash-alt dashtext-3"></i> <span class="dashtext-3">Excluir</span>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</app-navbar>

@@ -32,5 +32,9 @@ export class ArtistService {
 	list() {
 		return this.firestore.collection('artists', ref => ref.orderBy('name')).snapshotChanges();
 	}
+
+	count() {
+		return this.firestore.collection('artists').snapshotChanges();
+	}
 	
 }

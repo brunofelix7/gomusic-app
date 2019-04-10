@@ -2,7 +2,7 @@ import { Music } from './music';
 
 export class Album {
 
-    _id: string;
+    id: string;
     title: string;
     year: string;
     photo: string;

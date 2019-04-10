@@ -31,14 +31,16 @@
                 <thead>
                   <tr>
                     <th>Nome</th>
-                    <th>Descrição</th>
+                    <th class="text-center">Gênero</th>
+                    <th class="text-center">País</th>
                     <th class="text-right"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of artists">
                     <td>{{item.name}}</td>
-                    <td class="text-center">{{item.description}}</td>
+                    <td class="text-center">{{item.genre}}</td>
+                    <td class="text-center">{{item.country}}</td>
                     <td class="text-right">
                       <a [routerLink]="[ '/artistas/detalhes/', item.id ]" class="btn btn-primary btn-sm btn-icon">
                         <i class="fa fa-eye"></i>

@@ -33,4 +33,8 @@ export class MusicService {
 		return this.firestore.collection('musics', ref => ref.orderBy('title')).snapshotChanges();
 	}
 
+	count() {
+		return this.firestore.collection('musics').snapshotChanges();
+	}
+
 }

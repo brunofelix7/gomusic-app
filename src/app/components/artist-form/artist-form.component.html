@@ -1,3 +1,61 @@
-<p>
-  artist-form works!
-</p>
+<app-navbar>
+    <!-- NGX Loading -->
+    <ng-template #customLoadingTemplate></ng-template>
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+    <div class="page-header">
+      <div class="container-fluid">
+        <h2 class="h5 no-margin-bottom" *ngIf="id == null">Novo artista</h2>
+        <h2 class="h5 no-margin-bottom" *ngIf="id != null">Editar artista</h2>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div>
+        <ul class="breadcrumb" style="padding-top:0;">
+          <li class="breadcrumb-item"><a [routerLink]="[ '/dashboard' ]">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="[ '/artistas' ]">Artistas</a></li>
+          <li class="breadcrumb-item active" *ngIf="id == null">Novo</li>
+          <li class="breadcrumb-item active" *ngIf="id != null">Editar</li>
+        </ul>
+      </div>
+      <section class="no-padding-top">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6" style="padding-left: 0;">
+              <div class="block">
+                <div class="title"><strong class="d-block"><i class="fa fa-music"></i></strong>
+                  <span class="d-block" *ngIf="id == null">Inclua novos artistas.</span>
+                  <span class="d-block" *ngIf="id != null">Atualize os dados do seu artista favorito.</span>
+                </div>
+                <div class="block-body">
+                  <form>
+                    <div class="form-group">
+                      <label class="form-control-label">Nome</label>
+                      <input type="text" class="form-control" [(ngModel)]="artist.name" name="name"
+                        placeholder="Nome do artista">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">Gênero</label>
+                      <input type="text" class="form-control" [(ngModel)]="artist.genre" name="genre"
+                        placeholder="Gênero musical">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">País</label>
+                      <input type="text" class="form-control" [(ngModel)]="artist.country" name="country"
+                        placeholder="País do artista">
+                    </div>
+                    <div class="form-group">
+                      <input type="button" (click)="cadastrar()" *ngIf="id == null" value="Salvar"
+                        class="btn btn-primary btn-sm" style="margin-right: 4px;">
+                      <input type="button" (click)="atualizar()" *ngIf="id != null" value="Salvar"
+                        class="btn btn-primary btn-sm" style="margin-right: 4px;">
+                      <a [routerLink]="[ '/artistas' ]" class="btn btn-secondary btn-sm">Voltar</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </app-navbar>

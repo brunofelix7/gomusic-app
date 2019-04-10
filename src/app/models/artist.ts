@@ -4,7 +4,9 @@ export class Artist {
 
     id: string;
     name: string;
-    description: string;
+    genre: string;
+    photo: string;
+    country: string;
     albuns: Album[];
 
 }

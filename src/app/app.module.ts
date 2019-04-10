@@ -26,6 +26,7 @@ import { AuthService } from './services/auth.service';
 import { ArtistService } from './services/artist.service';
 import { AlbumService } from './services/album.service';
 import { MusicService } from './services/music.service';
+import { StorageService } from './services/storage.service';
 
 /**COMPONENTS */
 import { AppComponent } from './app.component';
@@ -85,6 +86,7 @@ import { HeaderComponent } from './components/header/header.component';
 		ArtistService,
 		AlbumService,
 		MusicService,
+		StorageService,
 		AuthGuard
 	],
 	bootstrap: [AppComponent]
