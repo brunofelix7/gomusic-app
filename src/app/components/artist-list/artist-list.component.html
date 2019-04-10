@@ -3,6 +3,33 @@
 	<ng-template #customLoadingTemplate></ng-template>
 	<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
 	</ngx-loading>
+
+	<!-- Modal -->
+	<div *ngIf="showModal">
+		<div class="block-body text-center">
+			<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+				class="modal fade text-left">
+				<div role="document" class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header"><strong id="exampleModalLabel" class="modal-title">Confirmar
+								exclusão</strong>
+							<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+									aria-hidden="true">×</span></button>
+						</div>
+						<div class="modal-body">
+							<p>Deseja realmente excluir <strong>{{ currentDelete }}</strong>?</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" data-dismiss="modal" class="btn btn-secondary">Fechar</button>
+							<button type="button" (click)="confirm()" data-dismiss="modal"
+								class="btn btn-primary">Confirmar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="page-header">
 		<div class="container-fluid">
 			<h2 class="h5 no-margin-bottom">Meus artistas</h2>
@@ -50,10 +77,11 @@
 												class="btn btn-primary btn-sm btn-icon">
 												<i class="fa fa-pencil-alt"></i>
 											</a>
-											<a [routerLink]="[ '/artistas/deletar/', item.id ]"
-												class="btn btn-primary btn-sm btn-icon">
-												<i class="fa fa-trash-alt dashtext-3"></i>
-											</a>
+											<button type="button" (click)="isShow(item.id, item.name)"
+                                                class="btn btn-primary btn-sm btn-icon" data-toggle="modal"
+                                                data-target="#myModal">
+                                                <i class="fa fa-trash-alt dashtext-3"></i>
+                                            </button>
 										</td>
 									</tr>
 								</tbody>

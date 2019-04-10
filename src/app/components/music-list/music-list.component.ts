@@ -12,11 +12,14 @@ export class MusicListComponent implements OnInit {
 
 	id: string;
 	loading: boolean;
+	showModal: boolean;
+	currentDelete: string;
 	music: Music;
 	musics: Music[];
 
 	constructor(private service: MusicService, private router: Router, private ativatedRoute: ActivatedRoute) {
 		this.loading = false;
+		this.showModal = false;
 		this.id = this.ativatedRoute.snapshot.params['id'];
 	}
 
@@ -54,6 +57,18 @@ export class MusicListComponent implements OnInit {
 				console.log(error);
 			}
 		);
+	}
+
+	isShow(id: string, title: string) {
+		this.id = id;
+		this.currentDelete = title;
+		this.showModal = true;
+	}
+
+	confirm() {
+		this.showModal = false;
+		this.loading = false;
+		this.router.navigate(['/musicas/deletar/' + this.id]);
 	}
 
 }

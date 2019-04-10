@@ -12,11 +12,14 @@ export class ArtistListComponent implements OnInit {
 
 	id: string;
 	loading: boolean;
+	showModal: boolean;
+	currentDelete: string;
 	artist: Artist;
 	artists: Artist[];
 
 	constructor(private service: ArtistService, private router: Router, private ativatedRoute: ActivatedRoute) {
 		this.loading = false;
+		this.showModal = false;
 		this.id = this.ativatedRoute.snapshot.params['id'];
 	}
 
@@ -54,6 +57,18 @@ export class ArtistListComponent implements OnInit {
 				console.log(error);
 			}
 		);
+	}
+
+	isShow(id: string, name: string) {
+		this.id = id;
+		this.currentDelete = name;
+		this.showModal = true;
+	}
+
+	confirm() {
+		this.showModal = false;
+		this.loading = false;
+		this.router.navigate(['/artistas/deletar/' + this.id]);
 	}
 
 }
